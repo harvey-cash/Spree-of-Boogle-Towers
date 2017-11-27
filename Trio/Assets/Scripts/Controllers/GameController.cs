@@ -43,6 +43,9 @@ public class GameController : MonoBehaviour {
     }
 
     private void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            Application.Quit();
+        }
 
         //RELOAD
         if (Input.GetKeyDown(KeyCode.Space)) {
@@ -67,8 +70,10 @@ public class GameController : MonoBehaviour {
             player.SetTargetPos(level.BoardCenter());
 
             player.Initialise();
+            player.Delluminate();
 
             //RenderSettings.skybox = Instantiate(Resources.Load("Materials/Backgrounds/" + levelName)) as Material;
+            /*
             if (level.BeDark()) {
                 RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat;
                 RenderSettings.ambientLight = Color.black;
@@ -78,6 +83,7 @@ public class GameController : MonoBehaviour {
                 DynamicGI.UpdateEnvironment();
                 player.Delluminate();
             }
+            */
         }
         else {
             Debug.Log("Win!");

@@ -6,7 +6,8 @@ public class LoadButton : LevelObject {
     public string launchBuild;
 
     public override ACTION PressedReaction(PlayerController player) {
-        string path = Application.dataPath.Substring(0, Application.dataPath.Length - 11) + "Builds/" + launchBuild;
+        string dataName = "SpreeOfBoogleTowers_Data";
+        string path = Application.dataPath.Substring(0, Application.dataPath.Length - dataName.Length) + "Games/" + launchBuild;
         Debug.Log(path);
         System.Diagnostics.Process process = System.Diagnostics.Process.Start(path);
         StartCoroutine(PressNoise());
